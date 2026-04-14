@@ -12,15 +12,31 @@ export default function isValidPassword(password = "") {
 
   // * * * YOUR CODE GOES IN HERE ... * * *
   /*
-   * if (password is not exactly 10 digits or characters...) {
-   *   return ...;
-   * }
+    if (password is not exactly 10 digits or characters...) {
+     return ...;
+   }
    *
    * if (is not composed by digits and numbers) {
    *   return ...;
    * }
    */
-  const setOfPassword = new Set([...password]);
+  const regex=/[a-zA-z0-9]/gi
+const tested=regex.test(password)
+
+if(password.length!==10){
+  return false
+}
+
+if(tested!==true){
+  return false
+
+}
+if(forbiddenPasswords.includes(password)) return false
+
+if(password.split('').every(e=>e===e.toLowerCase() || e===e.toUpperCase())) return false
+
+  const setOfPassword = new Set(password.split(''));
   if (setOfPassword.size < 4) return false;
   return true;
 }
+

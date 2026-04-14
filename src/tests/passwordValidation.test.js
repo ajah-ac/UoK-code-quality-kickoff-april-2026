@@ -1,4 +1,4 @@
-import isValidPassword, { forbiddenPasswords } from "../passwordValidation";
+import isValidPassword, { forbiddenPasswords } from "../passwordValidation.js";
 
 describe("VALIDATION_BASIC", () => {
   test("happy case", () => {
