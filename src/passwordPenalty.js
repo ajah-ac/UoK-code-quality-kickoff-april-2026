@@ -7,6 +7,8 @@
  */
 export default function penaltyPoints(password = "") {
   // The following line ensures, that password is always a string, like the number 128 -> string "128"
+    if(!password || password.length===0) return 0
+
   if (typeof password !== "string") password = String(password);
 
   // * * * * * * * * * * * * * * * * * * * * * * * * * * * *
@@ -30,6 +32,6 @@ for(let i=0;i<password.length;i++){
 }
  console.log(consecCount)
 
-const points=Object.values(consecCount).reduce((a,c)=>a +(c===1?0:c===2?2:3),0)
+const points=Object.values(consecCount).reduce((a,c)=>a +(c===1?0:c===2?1:2),0)
 return points
 }
